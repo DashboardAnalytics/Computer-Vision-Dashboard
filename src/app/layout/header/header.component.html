@@ -13,9 +13,11 @@
             <div ngbDropdown class="d-inline-block">
                 <a class="btn nav-link" id="tiendas" ngbDropdownToggle>Tiendas</a>
                 <div ngbDropdownMenu aria-labelledby="tiendas">
-                    <button ngbDropdownItem>Action - 1</button>
-                    <button ngbDropdownItem>Another Action</button>
-                    <button ngbDropdownItem>Something else is here</button>
+                    <button 
+                        ngbDropdownItem
+                        *ngFor="let store of stores,let i = index">
+                        {{store.name}}
+                </button>
                 </div>
             </div>
         </li>
@@ -71,11 +73,11 @@
                 <fa-icon [icon]="faBell" size="2x"></fa-icon>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="" class="btn nav-link">
                 <fa-icon [icon]="faComment" size="2x"></fa-icon>
             </a>
-        </li>
+        </li> -->
     </ul>
 
 

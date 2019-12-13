@@ -1,1 +1,27 @@
-<p>layout works!</p>
+<div class="row">
+    <div class="col-9 mr-auto ml-auto">
+        <app-line-chart></app-line-chart>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <h5>Top tiendas</h5>
+    </div>
+    <div class="col">
+        <h5>Periodos con mayor número de visitas</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col item-col">
+        <app-top-k [stores]="stores"></app-top-k>
+    </div>
+    <div class="col item-col">
+        <app-line-chart></app-line-chart>
+    </div>
+    <div class="col item-col">
+        <app-bar-chart></app-bar-chart>
+    </div>
+    <div class="col item-col">
+        <app-line-chart></app-line-chart>
+    </div>
+</div>
