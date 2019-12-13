@@ -1,0 +1,14 @@
+nav{
+    background-color: #bccee3;
+}
+img{
+    max-width: 100%;
+}
+.logo{
+    max-width: 100px;
+    text-align: center;
+}
+.logo a{
+    margin: 0;
+    padding: 0;
+}
