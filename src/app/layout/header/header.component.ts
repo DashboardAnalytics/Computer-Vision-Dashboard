@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faBell, faComment, faUserCircle, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { Store } from 'src/app/models/store.model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,6 +11,9 @@ export class HeaderComponent implements OnInit {
   faComment = faComment;
   faUserCircle = faUserCircle;
   faCalendarAlt = faCalendarAlt;
+
+  @Input() stores: Store[];
+
   constructor() { }
 
   ngOnInit() {
