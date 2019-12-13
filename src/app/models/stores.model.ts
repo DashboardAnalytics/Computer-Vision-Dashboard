@@ -1,17 +1,13 @@
-import { Stores } from './stores.model';
-
-export class Store{
+export class Stores{
     public id: number;
     public name: string;
     public url: string;
-    public stores: Stores[];
     public description: string;
 
-    constructor(id: number, name: string, url: string, stores: Stores[], description: string) { 
+    constructor(id: number, name: string, url: string, description: string) { 
         this.id = id;
         this.name = name;
         this.url = url;
-        this.stores = stores;
         this.description = description;
     }
 }

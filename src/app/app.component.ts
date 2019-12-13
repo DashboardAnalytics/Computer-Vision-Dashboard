@@ -8,11 +8,9 @@ import { StoreService } from './services/store.service';
 })
 export class AppComponent implements OnInit{
   title = 'computer-vision-dashboard';
-  stores: Store[];
-  constructor(private storeService: StoreService){
+  constructor(){
   }
   ngOnInit(){
-    this.stores = this.storeService.stores;
   }
 
 }
