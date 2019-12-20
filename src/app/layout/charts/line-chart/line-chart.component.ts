@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { StoreService } from 'src/app/services/store.service';
+import { GeneralVisits } from 'src/app/models/generalVisits.model';
 
 @Component({
   selector: 'app-line-chart',
@@ -9,6 +10,8 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./line-chart.component.css']
 })
 export class LineChartComponent implements OnInit {
+
+  @Input()generalVisits: GeneralVisits;
 
   @Input() title: string;
   @Input() subtitle: string;
@@ -26,9 +29,9 @@ export class LineChartComponent implements OnInit {
   ngOnInit() {
     this.selectedStoreName = this.storeService.selectedStoreName;
     this.lineChartData = [
-      { data: [85, 72, 78, 75, 77, 75], label: this.selectedStoreName },
+      { data: this.generalVisits['visits'], label: "Número de visitas" },
     ];
-    this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June'];
+    this.lineChartLabels = this.generalVisits['dates'];
     this.lineChartOptions = {
       responsive: true,
       maintainAspectRatio: false,

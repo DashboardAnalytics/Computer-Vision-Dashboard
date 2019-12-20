@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from "ngx-spinner";
 import { Store } from './models/store.model';
 import { StoreService } from './services/store.service';
 @Component({
@@ -7,10 +8,24 @@ import { StoreService } from './services/store.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+
   title = 'computer-vision-dashboard';
-  constructor(){
+  isFetching: boolean = false;
+  loadedStores: Store[];
+
+  constructor(
+    private spinner: NgxSpinnerService,
+    private storeService: StoreService){
   }
   ngOnInit(){
+    this.spinner.show();
+    this.isFetching = true;
+    this.storeService.fetchStores()
+    .subscribe( store => {
+      this.isFetching = false;
+      this.spinner.hide();
+      this.loadedStores = store;
+    })
   }
 
 }

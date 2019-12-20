@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import { Store } from 'src/app/models/store.model';
 import { StoreService } from 'src/app/services/store.service';
 import { Subscription } from 'rxjs';
 import { Stores } from 'src/app/models/stores.model';
@@ -25,7 +24,7 @@ export class TopKComponent implements OnInit, OnDestroy{
     this.selectedStoreName = this.storeService.selectedStoreName;
     this.storeService.stores.forEach(element => {
       if (element['name'] === this.selectedStoreName) {
-        this.stores = element['stores'];
+        this.stores = element['stores'].slice(0,6);
       }
     });
   }
