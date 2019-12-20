@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-end">
+    <!-- Brand -->
+    <div class="logo">
+        <a class="navbar-brand nav-link" href="#">
+            <img src="../../assets/images/logo_cencosud.png" alt="Company Logo." class="img-fluid">
+        </a>
+    </div>
+
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <div ngbDropdown class="d-inline-block">
+                <a class="btn nav-link" id="tiendas" ngbDropdownToggle>Tiendas</a>
+                <div ngbDropdownMenu aria-labelledby="tiendas">
+                    <a 
+                        ngbDropdownItem
+                        (click)="onSelectStore($event.target.innerText)" 
+                        *ngFor="let store of stores,let i = index"
+                        [routerLink]="['/', store.url]" 
+                        routerLinkActive="router-link-active" >
+                        {{store.name}}
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline">
+                <div class="form-group col">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                            #d="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                <fa-icon class=" calendar-icon" [icon]="faCalendarAlt"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+    <div *ngIf="selectedStoreName != ''" class="specific-logo mr-auto">
+        <a class="navbar-brand nav-link" href="#">
+            <img [src]="logoLocation" alt="Logo de la cadena" class="img-fluid">
+        </a>
+    </div>
+    <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li ngbDropdown class="nav-item d-inline-block">
+            <a class="btn nav-link" id="dropdownForm1" ngbDropdownToggle>
+                <fa-icon [icon]="faUserCircle" size="2x"></fa-icon>Nombre de usuario
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                <form class="px-4 py-3">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                            placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Contraseña</label>
+                        <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                            placeholder="Contraseña">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                        <label class="form-check-label" for="dropdownCheck">
+                            Recordar usuario
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem>Olvidé mi contraseña <fa-icon [icon]="faFrown"></fa-icon></button>
+            </div>
+        </li>
+        <li>
+            <a href="" class="btn nav-link">
+                <fa-icon [icon]="faBell" size="2x"></fa-icon>
+            </a>
+        </li>
+        <!-- <li>
+            <a href="" class="btn nav-link">
+                <fa-icon [icon]="faComment" size="2x"></fa-icon>
+            </a>
+        </li> -->
+    </ul>
+
+
+</nav>

@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>¿Cómo es el comportamiento de compra de mis visitas?</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h5>Resultados de la cadena</h5>
+        </div>
+        <div class="col">
+            <h5>Top tiendas</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col item-col">
+            <app-doughnut-chart *ngIf="!isFetching" title="Tasa de conversión y fuga"></app-doughnut-chart>
+            <div *ngIf="isFetching" class="line-spinner-chart-resume">
+                <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                    type="ball-clip-rotate-pulse" [fullScreen]="false">
+                    <p style="color: #535353">Obteniendo datos...</p>
+                </ngx-spinner>
+            </div>
+        </div>
+        <div class="col item-col">
+            <app-top-k *ngIf="!isFetching" title="Top tasa de conversión"></app-top-k>
+            <div *ngIf="isFetching" class="line-spinner-chart-resume">
+                <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                    type="ball-clip-rotate-pulse" [fullScreen]="false">
+                    <p style="color: #535353">Obteniendo datos...</p>
+                </ngx-spinner>
+            </div>
+        </div>
+        <div class="col item-col">
+            <app-top-k *ngIf="!isFetching" title="Top tasa de fuga"></app-top-k>
+            <div *ngIf="isFetching" class="line-spinner-chart-resume">
+                <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                    type="ball-clip-rotate-pulse" [fullScreen]="false">
+                    <p style="color: #535353">Obteniendo datos...</p>
+                </ngx-spinner>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col tem-col">
+            <app-line-chart *ngIf="!isFetching" title="Conversión y fuga" [generalVisits]="generalVisits">
+            </app-line-chart>
+            <div *ngIf="isFetching" class="line-spinner-chart">
+                <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                    type="ball-running-dots" [fullScreen]="false">
+                    <p style="color: #535353">Obteniendo Conversión y Fuga... </p>
+                </ngx-spinner>
+            </div>
+        </div>
+    </div>
+</div>
