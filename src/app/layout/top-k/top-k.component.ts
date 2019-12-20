@@ -16,6 +16,8 @@ export class TopKComponent implements OnInit, OnDestroy{
   selectedStoreName: string;
   stores: Stores[];
   storeSubscription: Subscription;
+
+  @Input() title: string;
   
   constructor(private storeService: StoreService) {}
 

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <app-line-chart></app-line-chart>
+        <app-line-chart title="Visitas" subtitle="Número de visitas a tienda por día"></app-line-chart>
     </div>
 </div>
 <div class="row">
@@ -13,7 +13,7 @@
 </div>
 <div class="row">
     <div class="col item-col">
-        <app-top-k></app-top-k>
+        <app-top-k title="Top visitas"></app-top-k>
     </div>
     <div class="col item-col">
         <app-line-chart></app-line-chart>
@@ -24,4 +24,20 @@
     <div class="col item-col">
         <app-line-chart></app-line-chart>
     </div>
+</div>
+<div class="row">
+    <div class="col specific-analysis-area">
+        <ul class="nav nav-tabs nav-fill">
+            <li *ngFor="let area of specificAnalysisResultsAreas" class="nav-item">
+                <a class="nav-link" routerLink="{{area.url}}" routerLinkActive="active">
+                    {{area.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <!--Specific Analysis Charts Begins -->
+    <router-outlet></router-outlet>
+    <!--Specific Analysis Charts Ends -->
 </div>
