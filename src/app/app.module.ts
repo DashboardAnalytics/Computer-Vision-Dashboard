@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { Routes, RouterModule} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsModule } from 'ng2-charts';
@@ -12,13 +12,55 @@ import { LineChartComponent } from './layout/charts/line-chart/line-chart.compon
 import { BarChartComponent } from './layout/charts/bar-chart/bar-chart.component';
 import { TopKComponent } from './layout/top-k/top-k.component';
 
+import { DoughnutChartComponent } from './layout/charts/doughnut-chart/doughnut-chart.component';
+import { ConversionComponent } from './layout/conversion/conversion.component';
+import { PermanenceComponent } from './layout/permanence/permanence.component';
+import { SegmentationComponent } from './layout/segmentation/segmentation.component';
+import { SatisfactionComponent } from './layout/satisfaction/satisfaction.component';
+import { RadarChartComponent } from './layout/charts/radar-chart/radar-chart.component';
+import { BubbleChartComponent } from './layout/charts/bubble-chart/bubble-chart.component';
 
 const appRoute: Routes = [
-  { path: 'jumbo', component: LayoutComponent },
-  { path: 'santa-isabel', component: LayoutComponent },
-  { path: 'easy', component: LayoutComponent },
-  { path: 'paris', component: LayoutComponent },
-  { path: 'johnson', component: LayoutComponent }
+  {
+    path: 'jumbo', component: LayoutComponent, children: [
+      { path: 'conversion', component: ConversionComponent },
+      { path: 'permanencia', component: PermanenceComponent },
+      { path: 'segmentacion', component: SegmentationComponent },
+      { path: 'satisfaccion', component: SatisfactionComponent }
+    ]
+  },
+  {
+    path: 'santa-isabel', component: LayoutComponent, children: [
+      { path: 'conversion', component: ConversionComponent },
+      { path: 'permanencia', component: PermanenceComponent },
+      { path: 'segmentacion', component: SegmentationComponent },
+      { path: 'satisfaccion', component: SatisfactionComponent }
+    ]
+  },
+  {
+    path: 'easy', component: LayoutComponent, children: [
+      { path: 'conversion', component: ConversionComponent },
+      { path: 'permanencia', component: PermanenceComponent },
+      { path: 'segmentacion', component: SegmentationComponent },
+      { path: 'satisfaccion', component: SatisfactionComponent }
+    ]
+  },
+  {
+    path: 'paris', component: LayoutComponent, children: [
+      { path: 'conversion', component: ConversionComponent },
+      { path: 'permanencia', component: PermanenceComponent },
+      { path: 'segmentacion', component: SegmentationComponent },
+      { path: 'satisfaccion', component: SatisfactionComponent }
+    ]
+  },
+  {
+    path: 'johnson', component: LayoutComponent, children: [
+      { path: 'conversion', component: ConversionComponent },
+      { path: 'permanencia', component: PermanenceComponent },
+      { path: 'segmentacion', component: SegmentationComponent },
+      { path: 'satisfaccion', component: SatisfactionComponent }
+    ]
+  }
 ];
 
 @NgModule({
@@ -28,7 +70,15 @@ const appRoute: Routes = [
     HeaderComponent,
     LineChartComponent,
     BarChartComponent,
-    TopKComponent
+    TopKComponent,
+    DoughnutChartComponent,
+    ConversionComponent,
+    ConversionComponent,
+    PermanenceComponent,
+    SegmentationComponent,
+    SatisfactionComponent,
+    RadarChartComponent,
+    BubbleChartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +86,7 @@ const appRoute: Routes = [
     FormsModule,
     FontAwesomeModule,
     ChartsModule,
-    RouterModule.forRoot(appRoute) 
+    RouterModule.forRoot(appRoute)
   ],
   providers: [],
   bootstrap: [AppComponent]
