@@ -40,6 +40,11 @@
             </form>
         </li>
     </ul>
+    <div *ngIf="selectedStoreName != ''" class="specific-logo mr-auto">
+        <a class="navbar-brand nav-link" href="#">
+            <img [src]="logoLocation" alt="Logo de la cadena" class="img-fluid">
+        </a>
+    </div>
     <ul class="navbar-nav">
         <!-- Dropdown -->
         <li ngbDropdown class="nav-item d-inline-block">
