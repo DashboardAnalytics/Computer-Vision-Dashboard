@@ -1,3 +1,4 @@
+<!--Principal Line Charts Begins -->
 <div class="row">
     <div class="col">
         <app-line-chart *ngIf="!isFetchingGeneralVisits" title="Visitas" subtitle="Número de visitas a tienda por día"
@@ -12,18 +13,26 @@
 
     </div>
 </div>
+<!--Principal Line Charts Ends -->
+
+<!--Resume Area Begins -->
 <div class="row">
+    <!--Resume Area Titles Begins -->
     <div class="col-3">
         <h5>Top tiendas</h5>
     </div>
     <div class="col">
         <h5>Periodos con mayor número de visitas</h5>
     </div>
+    <!--Resume Area Titles Ends -->
 </div>
 <div class="row">
+     <!--Top k Visited Stores Ranking Begins -->
     <div class="col item-col">
         <app-top-k title="Top visitas"></app-top-k>
     </div>
+    <!--Top k Visited Stores Ranking Ends -->
+     <!--Week Visits Line Chart Begins -->
     <div class="col item-col">
         <h6>Semana</h6>
         <app-line-chart *ngIf="!isFetchingWeekVisits" [generalVisits]="weekVisits"></app-line-chart>
@@ -34,6 +43,8 @@
             </ngx-spinner>
         </div>
     </div>
+    <!--Week Visits Line Chart Ends -->
+    <!--Day Visits Bar Chart Begins -->
     <div class="col item-col">
         <h6>Día</h6>
         <app-bar-chart *ngIf="!isFetchingDayVisits" [generalVisits]="dayVisits"></app-bar-chart>
@@ -44,6 +55,8 @@
             </ngx-spinner>
         </div>
     </div>
+    <!--Day Visits Bar Chart Ends -->
+     <!--Hour Visits Line Chart Begins -->
     <div class="col item-col">
         <h6>Hora</h6>
         <app-line-chart *ngIf="!isFetchingHourVisits" [generalVisits]="hourVisits"></app-line-chart>
@@ -54,7 +67,11 @@
             </ngx-spinner>
         </div>
     </div>
+    <!--Hour Visits Line Chart Ends -->
 </div>
+<!--Resume Area Ends -->
+
+<!--Specific Analysis Area Begins -->
 <div class="row">
     <div class="col">
         <ul class="nav nav-tabs nav-fill">
@@ -66,6 +83,8 @@
         </ul>
     </div>
 </div>
+<!--Specific Analysis Area Ends -->
+
 <!--Specific Analysis Charts Begins -->
 <router-outlet></router-outlet>
 <!--Specific Analysis Charts Ends -->
