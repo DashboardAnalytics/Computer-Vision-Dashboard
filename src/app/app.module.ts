@@ -21,6 +21,8 @@ import { RadarChartComponent } from './layout/charts/radar-chart/radar-chart.com
 import { BubbleChartComponent } from './layout/charts/bubble-chart/bubble-chart.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthComponent } from './auth/auth.component';
+import { HomeComponent } from './layout/home/home.component';
 const appRoute: Routes = [
   {
     path: 'jumbo', component: LayoutComponent, children: [
@@ -79,7 +81,9 @@ const appRoute: Routes = [
     SegmentationComponent,
     SatisfactionComponent,
     RadarChartComponent,
-    BubbleChartComponent
+    BubbleChartComponent,
+    AuthComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

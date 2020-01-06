@@ -1,31 +1,47 @@
-<div class="row">
-    <div class="col">
-        <h5>¿Qué género y edad tienen mis visitas?</h5>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>¿Qué género y edad tienen mis visitas?</h5>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-4">
-        <h5>Vista general</h5>
+    <div class="row">
+        <div class="col-4">
+            <h5>Vista general</h5>
+        </div>
+        <div class="col">
+            <h5>Vista jerárquica</h5>
+        </div>
     </div>
-    <div class="col">
-        <h5>Vista jerárquica</h5>
+    <div class="row">
+        <div class="col-4 item-col">
+            <app-radar-chart title="Tasa de conversión y fuga"></app-radar-chart>
+        </div>
+        <div class="col item-col">
+            <app-bubble-chart></app-bubble-chart>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-4 item-col">
-        <app-radar-chart title="Tasa de conversión y fuga"></app-radar-chart>
+    <div class="row">
+        <div class="col">
+            <app-line-chart *ngIf="!isFetching" title="Distribución por edad" [generalVisits]="generalVisits">
+            </app-line-chart>
+            <div *ngIf="isFetching" class="line-spinner-chart">
+                <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                    type="ball-running-dots" [fullScreen]="false">
+                    <p style="color: #535353">Obteniendo Distribuciónpor edad... </p>
+                </ngx-spinner>
+            </div>
+        </div>
     </div>
-    <div class="col item-col">
-        <app-bubble-chart></app-bubble-chart>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <app-line-chart title="Distribución por edad"></app-line-chart>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <app-line-chart title="Distribución por género"></app-line-chart>
+    <div class="row">
+        <div class="col">
+            <app-line-chart *ngIf="!isFetching" title="Distribución por género" [generalVisits]="generalVisits">
+            </app-line-chart>
+            <div *ngIf="isFetching" class="line-spinner-chart">
+                <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                    type="ball-running-dots" [fullScreen]="false">
+                    <p style="color: #535353">Obteniendo Distribución por género... </p>
+                </ngx-spinner>
+            </div>
+        </div>
     </div>
 </div>
