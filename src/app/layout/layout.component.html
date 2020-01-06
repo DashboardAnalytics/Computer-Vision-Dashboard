@@ -29,7 +29,13 @@
 <div class="row">
      <!--Top k Visited Stores Ranking Begins -->
     <div class="col item-col">
-        <app-top-k title="Top visitas"></app-top-k>
+        <app-top-k *ngIf="!isFetchingWeekVisits" title="Top visitas"></app-top-k>
+        <div *ngIf="isFetchingWeekVisits" class="line-spinner-chart-resume">
+            <ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0)" size="large" color="#535353"
+                type="ball-clip-rotate-pulse" [fullScreen]="false">
+                <p style="color: #535353">Obteniendo datos...</p>
+            </ngx-spinner>
+        </div>
     </div>
     <!--Top k Visited Stores Ranking Ends -->
      <!--Week Visits Line Chart Begins -->
