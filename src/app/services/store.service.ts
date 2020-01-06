@@ -1,6 +1,5 @@
 
 import { Injectable, EventEmitter } from '@angular/core';
-import { Stores } from '../models/stores.model';
 import { SpecificSection } from '../models/specificSection.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
